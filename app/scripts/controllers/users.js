@@ -6,29 +6,34 @@ angular.module('usersApp')
     $scope.$localStorage = $localStorage;
     $scope.sortByHighToLow = true;
 
-    if (!$scope.$localStorage.users) {
-      $scope.$localStorage.users = []
+    if (!$localStorage.users) {
+      $localStorage.users = []
     }
 
-    getUsers();
+    sortUsers();
+    setUsers();
 
-    function getUsers() {
+    function setUsers() {
       $scope.users = $localStorage.users;
     }
 
+    function getUsers() {
+      return $localStorage.users;
+    }
+
     function sortUsers() {
-      var users = $scope.users
+      var users = getUsers();
 
       users.sort(function(a, b) {
         if ($scope.sortByHighToLow) {
-          return Number(a.salary) - Number(b.salary)
-        } else {
           return Number(b.salary) - Number(a.salary)
+        } else {
+          return Number(a.salary) - Number(b.salary)
         }
       });
 
       $localStorage.users = users;
-      getUsers();
+      setUsers();
     }
 
     $scope.toggleSort = function() {
@@ -36,15 +41,31 @@ angular.module('usersApp')
       sortUsers();
     }
 
+    $scope.filterUsers = function() {
+      if($scope.filterOption) {
+        var users = getUsers();
+
+        var filteredUsers = users.filter(function(user) {
+          return user.department == $scope.filterOption;
+        })
+
+        $scope.users = filteredUsers
+      } else {
+        setUsers();
+      }
+    }
+
     $scope.removeUser = function(id) {
-      var users = $scope.users
+      var users = getUsers();
       var index = users.findIndex(function(user) {
         return user.id == id
       });
 
       users.splice(index, 1);
 
-      $scope.$localStorage.users = users;
-      getUsers();
+      $localStorage.users = users;
+      setUsers();
     }
+
+
   });

@@ -42,7 +42,7 @@
       <input ng-model="searchText">
     </div>
     <div class="col-sm-4">
-      <select ng-model="filterOption" class="form-control">
+      <select ng-change="filterUsers()" ng-model="filterOption" class="form-control">
         <option value="">Select Department</option>
         <option value="accounting">Accounting</option>
         <option value="hr">HR</option>
