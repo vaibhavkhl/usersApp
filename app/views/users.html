@@ -1,0 +1,26 @@
+<h1>Heloo</h1>
+
+<a ui-sref="addUser">Add user</a>
+
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>User Details</th>
+      <th>Contact Info</th>
+      <th>Address</th>
+      <th>Department</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="user in users">
+
+      <td>{{user.firstName}}</td>
+      <td>u{{ser.mobile}}</td>
+      <td>{{user.address}}</td>
+      <td>{{user.department}}</td>
+    </tr>
+
+  </tbody>
+</table>
