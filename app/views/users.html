@@ -1,26 +1,110 @@
-<h1>Heloo</h1>
-
-<a ui-sref="addUser">Add user</a>
-
-
-
-<table class="table">
+<!-- <table class="table">
   <thead>
     <tr>
       <th>User Details</th>
       <th>Contact Info</th>
       <th>Address</th>
       <th>Department</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
     <tr ng-repeat="user in users">
 
-      <td>{{user.firstName}}</td>
-      <td>u{{ser.mobile}}</td>
+      <td>
+        <div class="row">
+          <div class="col-sm-3">
+            {{user.firstName}}
+          </div>
+        </div>
+      </td>
+      <td>{{user.mobile}}</td>
       <td>{{user.address}}</td>
       <td>{{user.department}}</td>
+      <td><a class="glyphicon glyphicon-remove" ng-click="removeUser(user.id)"></td>
     </tr>
 
   </tbody>
-</table>
+</table> -->
+
+
+<div class="row">
+  <div class="col-sm-2">Employee List</div>
+  <div class="col-sm-2  pull-right">
+    <button ui-sref="addUser" class="btn btn-primary">Add user</button>
+  </div>
+
+</div>
+
+<div class="list-box">
+  <div class="row">
+    <div class="col-sm-4">
+      <input ng-model="searchText">
+    </div>
+    <div class="col-sm-4">
+      <select ng-model="filterOption" class="form-control">
+        <option value="">Select Department</option>
+        <option value="accounting">Accounting</option>
+        <option value="hr">HR</option>
+        <option value="tech">Tech</option>
+        <option value="marketing">Marketing</option>
+      </select>
+    </div>
+    <div class="col-sm-4">
+
+      <div ng-click="toggleSort()">
+        <div ng-show="sortByHighToLow"> Salary:High to low</div>
+        <div ng-show="!sortByHighToLow"> Salary:Low to high</div>
+      </div>
+    </diV>
+  </div>
+  <hr/>
+
+  <div class="row headingRow">
+    <div class="col-sm-3">User Details</div>
+    <div class="col-sm-3">Contact Info</div>
+    <div class="col-sm-3">Address</div>
+    <div class="col-sm-2">Department</div>
+    <div class="col-sm-1"></div>
+  </div>
+
+  <hr/>
+
+  <div class="customTable">
+    <div class="row" ng-repeat="user in users  | filter:searchText">
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="row">
+            <div class="col-sm-6"></div>
+            <div class="col-sm-6">
+              <div>{{user.firstName}} {{user.lastName}}
+             </div>
+             <div>
+               {{user.gender}}
+             </div>
+             <div>
+               {{user.dob}}
+             </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div>{{user.email}}</div>
+          <div>{{user.mobile}}</div>
+        </div>
+        <div class="col-sm-3">{{user.address}}</div>
+        <div class="col-sm-2">
+          <div>{{user.salary}}</div>
+          <div>{{user.department}}</div>
+        </div>
+        <div class="col-sm-1">
+          <a class="glyphicon glyphicon-remove" ng-click="removeUser(user.id)" />
+          <a class="glyphicon glyphicon-edit" ui-sref="editUser({ id: user.id})"/>
+        </div>
+      </div>
+      <hr/>
+
+
+  </div>
+</div>

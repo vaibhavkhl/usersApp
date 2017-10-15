@@ -25,6 +25,11 @@ angular
         url: '/users/add',
         templateUrl: 'views/add.html',
         controller: 'AddCtrl',
+      })
+      .state('editUser', {
+        url: '/users/edit/:id',
+        templateUrl: 'views/edit.html',
+        controller: 'EditCtrl',
       });
 
     $urlRouterProvider.otherwise('/users');
