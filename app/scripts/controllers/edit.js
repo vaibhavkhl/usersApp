@@ -22,7 +22,7 @@ angular.module('usersApp')
 
       users[index] = $scope.user;
       $localStorage.users = users;
-      $state.go('users')
+      $state.go('userDetail', {id: $scope.user.id});
     }
 
     $scope.removeUser = function(id) {

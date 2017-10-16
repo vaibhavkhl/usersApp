@@ -1,0 +1,50 @@
+<div class="row">
+  <div class="col-sm-2">
+    <img src="images/boy.png" ng-if="user.gender == 'male'">
+    <img src="images/girl.png" ng-if="user.gender == 'female'">
+  </div>
+  <div class="col-sm-3">
+    <div class="user-name">{{user.firstName}} {{user.lastName}}
+     </div>
+     <div>
+       {{user.gender}}
+     </div>
+     <div>
+       {{user.dob | date: 'dd-MM-yy'}}
+     </div>
+   </div>
+  <div> <a class="col-sm-1 pull-right btn btn-primary" ui-sref="editUser({ id: user.id})">Edit</a>
+  </diV>
+ </div>
+
+ <hr/>
+
+ <div class="row">
+   <div class="row detail-row">
+     <div class="col-sm-1"></div>
+     <div class="col-sm-3">Email Id</div>
+     <div class="col-sm-4">{{user.email}}</div>
+   </div>
+   <div class="row detail-row">
+     <div class="col-sm-1"></div>
+     <div class="col-sm-3">Mobile No</div>
+     <div class="col-sm-4">{{user.mobile}}</div>
+   </div>
+   <div class="row detail-row">
+     <div class="col-sm-1"></div>
+     <div class="col-sm-3">Address</div>
+     <div class="col-sm-4">{{user.address}}</div>
+   </div>
+   <div class="row detail-row">
+     <div class="col-sm-1"></div>
+     <div class="col-sm-3">Salary</div>
+     <div class="col-sm-4">&#x20B9; {{user.salary}}</div>
+   </div>
+   <div class="row detail-row">
+     <div class="col-sm-1"></div>
+     <div class="col-sm-3">Department</div>
+     <div class="col-sm-4">{{user.department}}</div>
+   </div>
+ </div>
+
+  <hr/>

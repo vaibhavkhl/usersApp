@@ -30,6 +30,11 @@ angular
         url: '/users/edit/:id',
         templateUrl: 'views/edit.html',
         controller: 'EditCtrl',
+      })
+      .state('userDetail', {
+        url: '/users/detail/:id',
+        templateUrl: 'views/detail.html',
+        controller: 'DetailCtrl',
       });
 
     $urlRouterProvider.otherwise('/users');

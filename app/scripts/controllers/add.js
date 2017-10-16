@@ -11,6 +11,6 @@ angular.module('usersApp')
       $scope.$storage.users.push(user)
       console.log($scope.$storage.users)
 
-      $state.go('users')
+      $state.go('userDetail', {id: $scope.user.id});
     }
   });
