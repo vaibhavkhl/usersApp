@@ -1,6 +1,7 @@
 .list-box {
   border: solid gray 1px;
-  padding: 10px;
+  padding: 20px;
+  margin: 10px;
 }
 
 .headingRow {
@@ -21,4 +22,17 @@ hr {
 
 .customTable {
   font-size: 12px;
+}
+
+.user-detail-row {
+  color: gray;
+}
+
+.user-name {
+  color: black;
+  font-weight: bold;
+}
+.remove-icon {
+  color: red;
+  margin-left: 5px;
 }

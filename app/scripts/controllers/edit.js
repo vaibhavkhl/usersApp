@@ -25,4 +25,16 @@ angular.module('usersApp')
       $state.go('users')
     }
 
+    $scope.removeUser = function(id) {
+      var users = $localStorage.users;
+      var index = users.findIndex(function(user) {
+        return user.id == id
+      });
+
+      users.splice(index, 1);
+
+      $localStorage.users = users;
+      $state.go('users')
+    }
+
   });

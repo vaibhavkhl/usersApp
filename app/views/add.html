@@ -1,101 +1,120 @@
-Add Employee
+<div class="row"><h3>Add Employee</h3></div>
 
 <div class="row">
-  <form class="simple-form" name="userForm" novalidate>
+  <div class="col-sm-2">
+    <img src="images/boy.png" ng-if="user.gender == 'male'">
+    <img src="images/girl.png" ng-if="user.gender == 'female'">
+  </div>
+  <div class="col-sm-10">
+    <form class="simple-form" name="userForm" novalidate>
 
-    <div class="row">
-      <div class="col-sm-6 form-group">
-        <label>First Name </label>
-        <input type="text" ng-model="user.firstName" name="firstName" class="form-control" required/>
-        <p ng-show="userForm.firstName.$invalid && !userForm.firstName.$pristine" class="help-block">
-          Your first name is required.
-        </p>
-      </div>
-      <div class="col-sm-6 form-group">
-        <label>Last Name </label>
-        <input type="text" ng-model="user.lastName" name="lastName" class="form-control" required/>
-        <p ng-show="userForm.lastName.$invalid && !userForm.lastName.$pristine" class="help-block">
-          Your last name is required.
-        </p>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-sm-3 form-group">
-        <label>Gender </label>
-        <div class="btn-group" role="group">
-          <button type="button" class="btn btn-default" ng-click="user.gender = male">Male</button>
-          <button type="button" class="btn btn-default" ng-click="user.gender = female">Female</button>
+      <div class="row">
+        <div class="col-sm-6 form-group">
+          <label>First Name </label>
+          <input type="text" ng-model="user.firstName" name="firstName" class="form-control" required/>
+          <p ng-show="userForm.firstName.$invalid && !userForm.firstName.$pristine" class="help-block">
+            Your first name is required.
+          </p>
+        </div>
+        <div class="col-sm-6 form-group">
+          <label>Last Name </label>
+          <input type="text" ng-model="user.lastName" name="lastName" class="form-control" required/>
+          <p ng-show="userForm.lastName.$invalid && !userForm.lastName.$pristine" class="help-block">
+            Your last name is required.
+          </p>
         </div>
       </div>
-    </div>
 
-    <div class="row">
-      <div class="col-sm-4 form-group">
-        <label>Date of Birth </label>
-        <input type="text" ng-model="user.dob" class="form-control"/>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-sm-6 form-group">
-        <label>E-mail</label>
-        <input type="email" ng-model="user.email" class="form-control"/>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-sm-6 form-group">
-        <label>Mobile no</label>
-        <div class="input-group">
-          <span class="input-group-addon" id="basic-addon1">+91</span>
-          <input type="number" ng-model="user.mobile" name="mobile" class="form-control" required/>
+      <div class="row">
+        <div class="col-sm-4 form-group">
+          <label>Gender </label>
+          <div class="btn-group" role="group">
+            <input type="radio" ng-model="user.gender" name="gender"
+              value="male" ng-required="!user.gender">
+            <label for="contactChoice1">Male</label>
+            <input type="radio" name="gender" ng-model="user.gender"
+              value="female" ng-required="!user.gender">
+            <label>Female</label>
+          </div>
+          <p ng-show="userForm.gender.$invalid && !userForm.gender.$pristine" class="help-block">
+            Your gender is required.
+          </p>
         </div>
-        <p ng-show="userForm.mobile.$invalid && !userForm.mobile.$pristine" class="help-block">
-          Your mobile no is required.
-        </p>
       </div>
-    </div>
 
-    <div class="row">
-      <div class="col-sm-6 form-group">
-        <label>Address</label>
-        <input type="text-area" ng-model="user.address" class="form-control"/>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-sm-6 form-group">
-        <label>Current Salary</label>
-        <div class="input-group">
-          <span class="input-group-addon" id="basic-addon1">Monthly</span>
-          <input type="number" ng-model="user.salary" class="form-control" name="salary" required/>
+      <div class="row">
+        <div class="col-sm-4 form-group">
+          <label>Date of Birth </label>
+          <input type="date" ng-model="user.dob" class="form-control" name="dob"
+            class="form-control"required/>
         </div>
-        <p ng-show="userForm.salary.$invalid && !userForm.salary.$pristine" class="help-block">
-          Your salary is required.
+        <p ng-show="userForm.dob.$invalid && !userForm.dob.$pristine" class="help-block">
+          Your Date of Birth is required.
         </p>
       </div>
-    </div>
 
-    <div class="row">
-      <div class="col-sm-6 form-group">
-        <label>Department</label>
-        <select ng-model="user.department" class="form-control" name="department" required>
-          <option value="">Select Department</option>
-          <option value="accounting">Accounting</option>
-          <option value="hr">HR</option>
-          <option value="tech">Tech</option>
-          <option value="marketing">Marketing</option>
-        </select>
-        <p ng-show="userForm.department.$invalid && !userForm.department.$pristine" class="help-block">
-          Your department is required.
-        </p>
+      <div class="row">
+        <div class="col-sm-6 form-group">
+          <label>E-mail</label>
+          <input type="email" ng-model="user.email" class="form-control" name="email"/>
+          <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">
+            Please enter a valid email.
+          </p>
+        </div>
       </div>
-    </div>
 
+      <div class="row">
+        <div class="col-sm-6 form-group">
+          <label>Mobile no</label>
+          <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">+91</span>
+            <input type="number" ng-model="user.mobile" name="mobile" class="form-control" required/>
+          </div>
+          <p ng-show="userForm.mobile.$invalid && !userForm.mobile.$pristine" class="help-block">
+            Your mobile no is required.
+          </p>
+        </div>
+      </div>
 
-   <a ui-sref="users" class="btn">Cancel</a>
-   <input type="submit" ng-click="add(user)" value="Save"
-    class="btn btn-primary" ng-disabled="!userForm.$valid"/>
- </form>
+      <div class="row">
+        <div class="col-sm-6 form-group">
+          <label>Address</label>
+          <input type="text-area" ng-model="user.address" class="form-control"/>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-6 form-group">
+          <label>Current Salary</label>
+          <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">Monthly</span>
+            <input type="number" ng-model="user.salary" class="form-control" name="salary" required/>
+          </div>
+          <p ng-show="userForm.salary.$invalid && !userForm.salary.$pristine" class="help-block">
+            Your salary is required.
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-6 form-group">
+          <label>Department</label>
+          <select ng-model="user.department" class="form-control" name="department" required>
+            <option value="">Select Department</option>
+            <option value="accounting">Accounting</option>
+            <option value="hr">HR</option>
+            <option value="tech">Tech</option>
+            <option value="marketing">Marketing</option>
+          </select>
+          <p ng-show="userForm.department.$invalid && !userForm.department.$pristine" class="help-block">
+            Your department is required.
+          </p>
+        </div>
+      </div>
+
+     <input type="submit" ng-click="add(user)" value="Save"
+      class="btn btn-primary" ng-disabled="!userForm.$valid"/>
+      <a ui-sref="users" class="btn">Cancel</a>
+   </form>
+ </div>
 </div>
